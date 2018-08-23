@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>heqiuling</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h3>1.简述javascript冒泡事件模型并举一个案例</h3>
+            <div class="answer1">
+                在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。
+                <br> 案例：比如你在地方法院要上诉一件案子，如果地方没有处理此类案件的法院，地方相关部门会帮你继续往上级法院上诉，比如从市级到省级，直至到中央法院，最终使你的案件得以处理。
+            </div>
+        </div>
+        <div>
+            <h3>2.vue模版语法中是否支持javascript表达式，如果支持有什么限制，并举一个模版中使用javascript表达式的例子</h3>
+            <div class="answer2">
+                vue模版语法中<strong>支持</strong>javascript表达式。
+                <br> 限制是只能在当前组件的作用域内才有效，而且每个绑定都只能包含单个表达式。
+                <br> 例子(这是我之前写项目用到的js里的三元表达式)
+            </div>
+            <img src="../static/test.png">
+        </div>
+        <div>
+            <h3>3.使用vuex分别编写两个store module(module1、module2),每个module分别声明一个state、mutations及actions</h3><span>(这块现在还不是很熟)</span>
+            <div class="answer3">
+                <p>const
+                    <span style="color:blue">module1</span> = {
+                    <br>
+                    <span style="color:blue">state</span>: { count: 0 },
+                    <br>
+                    <span style="color:blue">mutations</span>: {
+                    <br>increment (state)
+                    <br>{ state.count++ }
+                    <br>},
+                    <br>
+                    <span style="color:blue">actions</span>: {
+                    <br>increment (context){
+                    <br>context.commit('increment')
+                    <br>}</span>
+                    } }
+                    <p>const
+                        <span style="color:blue">module2</span> = {
+                        <br>
+                        <span style="color:blue">state</span>: { count: 0 },
+                        <br>
+                        <span style="color:blue">mutations</span>: {
+                        <br>increment (state)
+                        <br>{ state.count-- }
+                        <br>},
+                        <br>
+                        <span style="color:blue">actions</span>: {
+                        <br>increment (context) {
+                        <br>context.commit('increment')
+                        <br>} } }
+                    </p>
+                    <p>const store = new Vuex.Store({
+                        <br>modules: {
+                        <br>a: module1,
+                        <br>b: module2 }
+                        <br>})</p>
+                    store.state.a
+                    <br>store.state.b
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .container {
+        padding: 0px 50px;
+    }
+
+    .answer1 {
+        text-indent: 2rem;
+    }
+
+    .answer2 {
+        padding-bottom: 10px;
+    }
+
+    .answer3 {
+        padding-left: 300px;
+    }
+
+    .actions {
+        padding-left: 20px;
+    }
+</style>
+
+</html>
